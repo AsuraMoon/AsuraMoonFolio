@@ -1,0 +1,316 @@
+/* ============================
+   WRAPPER GLOBAL
+============================ */
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  scroll-behavior: smooth;
+}
+
+/* ============================
+   NAVIGATION ANCRÉE
+============================ */
+.anchorNav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--background);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+}
+
+.anchorNav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--foreground);
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.anchorNav a:hover {
+  opacity: 1;
+}
+
+/* ============================
+   SECTIONS
+============================ */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.section h1,
+.section h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 25px rgba(255, 216, 74, 0.25);
+}
+
+.section p {
+  opacity: 0.85;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+/* ============================
+   AVATAR
+============================ */
+.avatar {
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.15);
+  margin-bottom: 1.5rem;
+}
+
+/* ============================
+   TIMELINE
+============================ */
+.timeline {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+}
+
+.timeline div {
+  padding-left: 1rem;
+  border-left: 3px solid var(--purple);
+}
+
+.timeline h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.timeline p {
+  opacity: 0.8;
+}
+
+/* ============================
+   GRILLE COMPÉTENCES
+============================ */
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid div {
+  background: var(--background);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+
+.grid div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.grid h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================
+   MÉTHODOLOGIE (4 ÉTAPES)
+============================ */
+.steps {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.steps div {
+  background: var(--background);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+
+.steps div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ============================
+   VALEURS
+============================ */
+.values {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.values div {
+  background: var(--background);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+
+.values div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ============================
+   ANIMATION
+============================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   LAYOUT
+========================================= */
+.layout-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-content {
+  flex: 1;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--foreground);
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+.global-footer {
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0.5;
+  font-size: 0.85rem;
+}
+
+/* =========================================
+   CONTAINERS
+========================================= */
+.responsive-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* =========================================
+   CARDS MODERNES
+========================================= */
+.modern-card {
+  background: var(--background);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   TITRES DE SECTION
+========================================= */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* =========================================
+   BOUTON GRADIENT (signature Asu ⚡)
+========================================= */
+.btn-gradient {
+  background: var(--gradient-main);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  color: #000;
+  font-weight: 700;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.btn-gradient:hover {
+  opacity: 0.85;
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navIcon {
+  color: var(--foreground);
+}
