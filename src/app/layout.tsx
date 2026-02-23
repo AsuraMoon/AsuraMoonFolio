@@ -18,9 +18,18 @@ export default function RootLayout({
       <body className="layout-body">
         <main className="layout-content">{children}</main>
 
-        <footer className="global-footer">
-          © {new Date().getFullYear()} Asu — Fullstack JS
-        </footer>
+          <footer className="global-footer">
+            <p>
+              © {new Date().getFullYear()} Made by Asura — Fullstack JS —{" "}
+              <a
+                href="https://github.com/AsuraMoon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </p>
+          </footer>
       </body>
     </html>
   );

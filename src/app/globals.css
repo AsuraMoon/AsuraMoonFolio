@@ -1,11 +1,6 @@
-/* =========================================
-   IMPORT TAILWIND
-========================================= */
 @import "tailwindcss";
 
-/* =========================================
-   THEME VARIABLES + IDENTITÉ ASU ⚡
-========================================= */
+/* THEME VARIABLES */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -35,10 +30,8 @@
   }
 }
 
-/* =========================================
-   GLOBAL RESET
-========================================= */
-* {
+/* GLOBAL RESET (propre) */
+html, body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
