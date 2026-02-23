@@ -1,13 +1,19 @@
-import Link from "next/link";
+"use client"
 import Image from "next/image";
+import Style from "./home.module.css";
+import { useState } from "react";
+
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <main>
+    <main className={Style.wrapper}>
       {/* NAVIGATION ANCRÉE */}
-      <nav>
-        <p>Portfolio.</p>
-        <div>
+      <nav className={Style.nav}>
+        <p className={Style.logo}>Portfolio.</p>
+
+        <div className={`${Style.navLinks} ${isOpen ? Style.navOpen : ""}`}>
           <a href="#presentation">Présentation</a>
           <a href="#parcours">Parcours</a>
           <a href="#skills">Compétences</a>
@@ -15,99 +21,130 @@ export default function Home() {
           <a href="#valeurs">Valeurs</a>
           <a href="#experience">Expérience</a>
           <a href="#contact">Contact</a>
+        </div>
 
-          <Link href="#contact">
-            Projets
-            <Image
-              src="/new-windows-black.svg"
-              width={17}
-              height={17}
-              alt="Nouvel onglet"
-            />
-          </Link>
+        <div
+          className={`${Style.burger} ${isOpen ? "open" : ""}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
 
       {/* SECTION 1 — PRÉSENTATION */}
-      <section id="presentation">
-        <Image src="/avatar.png" alt="Asu avatar" width={120} height={120} />
-        <h1>
-          Julien "Asura" Fredenucci — Développeur Concepteur Logiciel Fullstack JavaScript (RNCP 7)
-        </h1>
-        <p>
-          Je conçois des applications modernes, fiables et élégantes, avec une
-          obsession pour l’architecture propre, la sécurité et l’expérience
-          utilisateur.
-        </p>
+      <section id="presentation" className={Style.presentation}>
+        <div className={Style.presentationText}>
+          <h1 className={Style.title}>
+            Julien “Asura” Fredenucci — Développeur Concepteur Logiciel
+            Fullstack (RNCP 7)
+          </h1>
+          <p className={Style.text}>
+            Je conçois et développe des applications modernes, performantes et
+            sécurisées en JavaScript/TypeScript, avec une expertise en Next.js,
+            Node.js et PostgreSQL. Mon approche est guidée par la rigueur, la
+            fiabilité et la qualité du code, renforcées par mon expérience au
+            sein du Ministère des Armées.
+          </p>
+        </div>
+
+        <div className={Style.presentationPhoto}>
+          <Image
+            src="/avatar.png"
+            alt="Julien Asura Fredenucci"
+            width={260}
+            height={260}
+            className={Style.avatarFade}
+          />
+        </div>
       </section>
 
       {/* SECTION 2 — PARCOURS */}
-      <section id="parcours">
-        <h2>Parcours</h2>
-        <div>
+      <section id="parcours" className={Style.section}>
+        <h2 className={Style.subtitle}>Parcours</h2>
+
+        <div className={Style.timeline}>
           <div>
-            <h3>2023 — 2025 · OpenClassrooms</h3>
+            <h3>
+              2023 — 2025 · OpenClassrooms — Développeur Concepteur Logiciel
+              (RNCP 7)
+            </h3>
             <p>
-              Bac+3 & Bac+5 Fullstack JavaScript, projets professionnalisants,
-              CI/CD, tests, Next.js.
+              Développement fullstack JavaScript/TypeScript, Next.js, Node.js,
+              PostgreSQL, CI/CD, tests unitaires et déploiements automatisés.
             </p>
           </div>
+
           <div>
             <h3>2022 · Ministère des Armées</h3>
             <p>
-              Rigueur, discipline, Java, Spring, documentation, procédures
-              strictes.
+              Formation intensive en développement logiciel, Java, POO, Spring,
+              bonnes pratiques, discipline et rigueur opérationnelle.
             </p>
           </div>
+
           <div>
-            <h3>2020 — 2021 · GRETA</h3>
-            <p>Développement web, PHP/Symfony, MySQL, SASS, Bootstrap.</p>
+            <h3>
+              2020 — 2021 · GRETA Provence — Développeur Web / Web Mobile (RNCP
+              5)
+            </h3>
+            <p>
+              Développement front/back, PHP/Symfony, MySQL, SASS, Bootstrap,
+              déploiement et gestion de projets web.
+            </p>
           </div>
         </div>
       </section>
 
       {/* SECTION 3 — COMPÉTENCES */}
-      <section id="skills">
-        <h2>Compétences clés</h2>
-        <div>
+      <section id="skills" className={Style.section}>
+        <h2 className={Style.subtitle}>Compétences clés</h2>
+
+        <div className={Style.grid}>
           <div>
             <h3>Next.js 14</h3>
-            <p>App Router, API Routes, performances.</p>
+            <p>App Router, performances, SSR/ISR.</p>
           </div>
           <div>
             <h3>Node.js</h3>
             <p>APIs robustes, sécurité, auth hashée.</p>
           </div>
           <div>
+            <h3>TypeScript</h3>
+            <p>Typage strict, architecture fiable.</p>
+          </div>
+          <div>
             <h3>PostgreSQL / Supabase</h3>
-            <p>Triggers, schémas propres.</p>
+            <p>Schémas propres, triggers.</p>
           </div>
           <div>
             <h3>CI/CD</h3>
-            <p>GitHub Actions, déploiement continu.</p>
+            <p>GitHub Actions, déploiements automatisés.</p>
           </div>
           <div>
-            <h3>Architecture</h3>
+            <h3>Architecture logicielle</h3>
             <p>Modularité, clean code.</p>
           </div>
           <div>
             <h3>Sécurité</h3>
-            <p>Auth, hashing, bonnes pratiques.</p>
+            <p>Hashing, validation, bonnes pratiques.</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 4 — MÉTHODOLOGIE */}
-      <section id="methodo">
-        <h2>Méthodologie</h2>
-        <div>
+      <section id="methodo" className={Style.section}>
+        <h2 className={Style.subtitle}>Méthodologie</h2>
+
+        <div className={Style.grid}>
           <div>
             <h3>1. Analyse</h3>
-            <p>Comprendre les besoins, cadrer le projet.</p>
+            <p>Compréhension des besoins, cadrage précis.</p>
           </div>
           <div>
             <h3>2. Architecture</h3>
-            <p>Schémas, modèles, organisation du code.</p>
+            <p>Modèles, schémas, organisation du code.</p>
           </div>
           <div>
             <h3>3. Développement</h3>
@@ -115,15 +152,16 @@ export default function Home() {
           </div>
           <div>
             <h3>4. Déploiement</h3>
-            <p>CI/CD, monitoring, optimisation.</p>
+            <p>CI/CD, monitoring, optimisation continue.</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 5 — VALEURS */}
-      <section id="valeurs">
-        <h2>Valeurs</h2>
-        <div>
+      <section id="valeurs" className={Style.section}>
+        <h2 className={Style.subtitle}>Valeurs</h2>
+
+        <div className={Style.grid}>
           <div>
             <h3>Rigueur</h3>
             <p>Héritée du Ministère des Armées.</p>
@@ -136,21 +174,31 @@ export default function Home() {
             <h3>Fiabilité</h3>
             <p>Code propre, maintenable, sécurisé.</p>
           </div>
+          <div>
+            <h3>Discipline</h3>
+            <p>Méthodes structurées, constance.</p>
+          </div>
+          <div>
+            <h3>Esprit d’analyse</h3>
+            <p>Architecture et résolution de problèmes.</p>
+          </div>
         </div>
       </section>
 
       {/* SECTION 6 — EXPÉRIENCE */}
-      <section id="experience">
-        <h2>Expérience</h2>
-        <p>
-          Plus de 20 projets professionnalisants, front/back, API REST, bases de
-          données, tests, CI/CD.
+      <section id="experience" className={Style.section}>
+        <h2 className={Style.subtitle}>Expérience</h2>
+        <p className={Style.text}>
+          Plus de 20 projets professionnalisants réalisés : applications
+          fullstack, APIs REST, bases de données, tests unitaires, CI/CD,
+          déploiements automatisés et optimisation des performances.
         </p>
       </section>
 
       {/* SECTION 7 — CONTACT */}
-      <section id="contact">
-        <h2>Contact</h2>
+      <section id="contact" className={Style.section}>
+        <h2 className={Style.subtitle}>Contact</h2>
+
         <p>
           Email : <a href="mailto:jufredenucci@gmx.fr">jufredenucci@gmx.fr</a>
         </p>
